@@ -6,7 +6,7 @@ String [] touch_labels = {"TOUCH SENSOR", "Data byte1", "sensitivity", "LED OUT"
 String [] mouse_labels = {"MOUSE EMULATOR", "MouseWheel", "X circuit pos", "Y circuit pos", "", "-/mouse/arrows", "", "MODE", "", "", "", "","LED"};
 String [] PADS_labels = {"PADS", "Data byte1", "", "", "MIDI CHANNEL", "", "MIDI TYPE", "MODE", "", "", "", "","LED"};
 String [] distance_labels = {"DISTANCE SENSOR", "Data byte1", "MIN", "MAX", "MIDI CHANNEL", "DMX CHANNEL", "", "MODE", "POT/BUTTON/scale", "", "", "","LED"};
-String [] GENERAL_labels = {"GENERAL SETUP","","1= ExtraPlex", "0= PADS", ".", "spinners", ".", "MODE", "LED EFX", ".", ".", ".","LED"};
+String [] GENERAL_labels = {"GENERAL SETUP","1= NO SHIFTERS","1= ExtraPlex", "0= PADS", ".", "spinners", ".", "MODE", "LED EFX", ".", ".", ".","LED"};
 
 
 String []  toggleList ={

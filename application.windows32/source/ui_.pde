@@ -906,7 +906,7 @@ else if (dMode.getValue() == 26) {
                 //   dKeys.setItems(toggleList);
                    dKeys.setItems(keylist_general);
                  //    dModif.setVisible(false);
-                   nT.hide();
+                   nT.show();
                  dModif.hide(); 
                  dKeys.show();
                      min.show(); 
