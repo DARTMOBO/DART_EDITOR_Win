@@ -408,7 +408,7 @@ hide_all ();
      // , gridCols[1]+spaceBetw/9, gridRow[3]+rowBetw*0.4);
   }
    else if (infoGraph==1001) {  hints2.setColor(190);
-   hints2.setText("SELECT PAGE 1 \n A DartMobo based controller can store two presets (pages).");
+   hints2.setText("SELECT PAGE 1 \n A Dart controller preset is divided two pages.");
    // text("HiNT BOX: \n"+  "name"
      // , gridCols[1]+spaceBetw/9, gridRow[3]+rowBetw*0.4);
   }

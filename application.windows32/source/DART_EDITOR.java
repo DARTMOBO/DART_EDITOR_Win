@@ -187,7 +187,7 @@ public void setup() {
     
  
       
- // size(820, 640);
+//  size(820, 640);
  
   settingScreen();    // settaggi spaziatura
 
@@ -1421,7 +1421,7 @@ hide_all ();
      // , gridCols[1]+spaceBetw/9, gridRow[3]+rowBetw*0.4);
   }
    else if (infoGraph==1001) {  hints2.setColor(190);
-   hints2.setText("SELECT PAGE 1 \n A DartMobo based controller can store two presets (pages).");
+   hints2.setText("SELECT PAGE 1 \n A Dart controller preset is divided two pages.");
    // text("HiNT BOX: \n"+  "name"
      // , gridCols[1]+spaceBetw/9, gridRow[3]+rowBetw*0.4);
   }
@@ -3073,7 +3073,7 @@ String [] touch_labels = {"TOUCH SENSOR", "Data byte1", "sensitivity", "LED OUT"
 String [] mouse_labels = {"MOUSE EMULATOR", "MouseWheel", "X circuit pos", "Y circuit pos", "", "-/mouse/arrows", "", "MODE", "", "", "", "","LED"};
 String [] PADS_labels = {"PADS", "Data byte1", "", "", "MIDI CHANNEL", "", "MIDI TYPE", "MODE", "", "", "", "","LED"};
 String [] distance_labels = {"DISTANCE SENSOR", "Data byte1", "MIN", "MAX", "MIDI CHANNEL", "DMX CHANNEL", "", "MODE", "POT/BUTTON/scale", "", "", "","LED"};
-String [] GENERAL_labels = {"GENERAL SETUP","1= NO SHIFTERS","1= ExtraPlex", "0= PADS", ".", "spinners", ".", "MODE", "LED EFX", ".", ".", ".","LED"};
+String [] GENERAL_labels = {"GENERAL SETUP","1= NoMobo","1= ExtraPlex", "0= PADS", ".", "spinners", ".", "MODE", "LED EFX", ".", ".", ".","LED"};
 
 
 String []  toggleList ={
@@ -3180,8 +3180,8 @@ String []  VALUE_Strings ={
 "VALUE of the MIDI message. \n it's the FIRST DATA BYTE of the midi message. \n In a common MIDI NOTE message this value defines the PITCH of the note.", // distance sensor  // normale scelta dmx - 18
 "VALUE of the MIDI message. \n it's the FIRST DATA BYTE of the midi message. \n In a common MIDI NOTE message this value defines the PITCH of the note.", // touch sensor - reset value
 // -23 24
-"MOUSEWHEEL \n 0= no mouse wheel emulation \n 1=  ACTIVE : the main SPINNER will emulate mousewheel movements, use SPEED settings of the Spinner to setup it.", //-25
-"",
+"MOUSEWHEEL \n 0= no mouse wheel emulation \n 1 =  ACTIVE : the main SPINNER will emulate mousewheel movements, use SPEED settings of the Spinner to setup it.", //-25
+"0 = shifters and multiplexers are enabled \n 1 = shifters and multiplexers are disabled, the Arduino pins 4,5,6,10,11,12 can be used as output pins for LEDs.",
 ""};
 
 String []  KEY_Strings ={

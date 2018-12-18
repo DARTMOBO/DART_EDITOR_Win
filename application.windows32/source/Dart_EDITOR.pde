@@ -160,7 +160,7 @@ void setup() {
     
  
       
- // size(820, 640);
+//  size(820, 640);
  fullScreen();
   settingScreen();    // settaggi spaziatura
 
