@@ -25,8 +25,6 @@ import java.io.IOException;
 
 public class DART_EDITOR extends PApplet {
 
- 
-
 ///////////////////////////
 //                       //
 // DART_EDITOR           //
@@ -99,6 +97,8 @@ int colore_ = 100;
 int channel_filter = 0;
 int value_filter = -1;
 long old_timestamp;
+
+int i_sender  = 61;
 
 int intro;
 
@@ -176,7 +176,7 @@ int old_value2;
 int raw1;
 int raw2;
 
-byte delay_send = 40;
+byte delay_send = 15;
 
 //**********************************
 //**********************************
@@ -297,23 +297,36 @@ public void draw() {
   change();
 
   interfaceDisp();
-  
+   midiMonitor();
    
-  
+  if (i_sender >= 59) 
+  {
   elementListener(); // to trigger the button element of the dart
   explanationText();
    //  allarme_page_();
   //THE MIDI MONITOR in MIDIClass//
    // in midi class
   // delay(300);
-   midiMonitor();
+  
  keyPressed_();
  
  image_circuit();
 
 post_load_setup_();
  sawplay ();
+}
  
+else {
+  
+if (i_sender == 0) {   myBus.sendMessage(241, 0, 0); delay(50); 
+hints2.setText("SENDING the complete preset to the DART device");
+}
+sender();
+
+if (i_sender == 59)  myBus.sendMessage(241, 0, 0);
+
+}
+
 
 }
 /*void controllo_doppioni () {
@@ -2495,7 +2508,7 @@ cp5.setFont(f, (int)(Betw2*0.6f));
 }
 // FUNCTION TO ACTIVATE PANEL BUTTON
 public void mousePressed() {
-  if (exit.isPressed())    {delay(500); exit(); //\myBus.close(); 
+  if (exit.isPressed() && i_sender >= 59)    {delay(500); exit(); //\myBus.close(); 
  //  myBus.removeInput(DartIN) ;  myBus.removeOutput(DartOUT) ; 
  //  myBus.close();
   // MidiBus.close();
@@ -2512,7 +2525,7 @@ public void mousePressed() {
 
 
   
-  if (edit.isPressed()) {if (edit.isOn() == true ) {edit_activate();  // initMidi(); // saw.play(); 
+  if (edit.isPressed() && i_sender >= 59) {if (edit.isOn() == true ) {edit_activate();  // initMidi(); // saw.play(); 
 } else {edit_deactivate();// saw.stop(); 
 }   }
 
@@ -2524,12 +2537,12 @@ public void mousePressed() {
 
 
 
-if (save.isPressed()) { delay(500); save.setOff(); selectOutput("Save Editor Settings:", "fileToSave"); save.setOff(); }
+if (save.isPressed() && i_sender >= 59) { delay(500); save.setOff(); selectOutput("Save Editor Settings:", "fileToSave"); save.setOff(); }
 if (load.isPressed()) {post_load_setup= 1; delay(500);   load.setOff(); selectInput("Load Editor Settings:", "fileToLoad"); load.setOff();}
 
 
   
-  if (sendFirstPage.isPressed()) {      // selettore page - anche se si chiama send
+  if (sendFirstPage.isPressed() && i_sender >= 59) {      // selettore page - anche se si chiama send
       page_selected = false;
       sendSecondPage.setOff();      
       for (int i=0; i<60; i++) {
@@ -2540,7 +2553,7 @@ if (load.isPressed()) {post_load_setup= 1; delay(500);   load.setOff(); selectIn
    
    
    
-    if (sendSecondPage.isPressed())  {
+    if (sendSecondPage.isPressed() && i_sender >= 59)  {
        page_selected = true;
        sendFirstPage.setOff();   
        for (int i=0; i<60; i++) {
@@ -2557,69 +2570,12 @@ if (load.isPressed()) {post_load_setup= 1; delay(500);   load.setOff(); selectIn
   //*************
   //send selected to first page   // invia tutto
   //**************
- if (sendOnPageOne.isPressed()) {   // send ALL
-    myBus.sendMessage(241, 0, 0);
-    delay(260);
-    for (int i=0; i<60; i++) {
-     //  if (elementData.get(i).hide == 0) 
-      {
-      // if (page_selected == false  )
-       {
-        myBus.sendMessage(176+elementData.get(i).midiChannel-1, elementData.get(i).note[0], elementData.get(i).memoryPosition-1);
-        delay(delay_send);
-        if (  elementData.get(i).modifiers == 0) {
-          if (elementData.get(i).toggleMode == 21 || elementData.get(i).toggleMode == 22 || elementData.get(i).toggleMode == 19) 
-          myBus.sendMessage(176+elementData.get(i).midiChannel-1, elementData.get(i).setExcursionControllMax, elementData.get(i).setExcursionControllMin+32); // speed range -32 +32 viene inviata come 0-64
-          else myBus.sendMessage(176+elementData.get(i).midiChannel-1, elementData.get(i).setExcursionControllMax, elementData.get(i).setExcursionControllMin);
-        } else {
-          myBus.sendMessage(176+elementData.get(i).midiChannel-1, elementData.get(i).setExcursionControllMax, elementData.get(i).modifiers);
-        }
-        delay(delay_send);
-       if (elementData.get(i).hide == 0)  myBus.sendMessage(176+elementData.get(i).midiChannel-1, PApplet.parseInt(elementData.get(i).toggleMode), elementData.get(i).addressDMX);
-       else myBus.sendMessage(176+elementData.get(i).midiChannel-1, 0, elementData.get(i).addressDMX);
-       
-        delay(delay_send);
-        myBus.sendMessage(176+elementData.get(i).midiChannel-1, PApplet.parseInt(keyboard_out(elementData.get(i).keyBoard)), PApplet.parseInt ( elementData.get(i).indexMidiType ));
-        delay(delay_send);
-        myBus.sendMessage(176+elementData.get(i).midiChannel-1, PApplet.parseInt(elementData.get(i).led_), 0 );
-        delay(80);
-      //  break;
-      }
-     // else
-      {
-       myBus.sendMessage(176+elementData.get(i).midiChannel_2nd-1, elementData.get(i).note[1], elementData.get(i).memoryPosition+63);
-        delay(delay_send);
-        if (  elementData.get(i).modifiers == 0) {
-           if (elementData.get(i).toggleMode == 21 || elementData.get(i).toggleMode == 22 || elementData.get(i).toggleMode == 19) 
-          myBus.sendMessage(176+elementData.get(i).midiChannel_2nd-1, elementData.get(i).setExcursionControllMax_2nd, elementData.get(i).setExcursionControllMin_2nd+32);
-          else 
-          myBus.sendMessage(176+elementData.get(i).midiChannel_2nd-1, elementData.get(i).setExcursionControllMax_2nd, elementData.get(i).setExcursionControllMin_2nd);
-        
-        } else {
-          myBus.sendMessage(176+elementData.get(i).midiChannel_2nd-1, elementData.get(i).setExcursionControllMax_2nd, elementData.get(i).modifiers_2nd);
-        }
-        delay(delay_send);
-        if (elementData.get(i).hide == 0)  myBus.sendMessage(176+elementData.get(i).midiChannel_2nd-1, PApplet.parseInt(elementData.get(i).toggleMode_2nd), elementData.get(i).addressDMX_2nd);
-        else myBus.sendMessage(176+elementData.get(i).midiChannel_2nd-1, 0, elementData.get(i).addressDMX_2nd);
-        
-        delay(delay_send);
-        myBus.sendMessage(176+elementData.get(i).midiChannel_2nd-1, PApplet.parseInt(keyboard_out(elementData.get(i).keyBoard_2nd)), PApplet.parseInt ( elementData.get(i).indexMidiType_2nd ));
-          delay(delay_send);
-        myBus.sendMessage(176+elementData.get(i).midiChannel_2nd-1, PApplet.parseInt(elementData.get(i).led_), 0 );
-        delay(80);
-     //   break;
-      }
-      
-      }
-    } 
-    myBus.sendMessage(241, 0, 0);
-    
-     
-
-     
-    //println("exit");
-    //}
-  }
+ if (sendOnPageOne.isPressed() && i_sender >= 59) {   // send ALL
+   i_sender = 0;
+   }
+  
+  
+  
  /* 
  if (sendOnPageOne.isPressed()) {
     myBus.sendMessage(241, 0, 0);
@@ -2649,7 +2605,7 @@ if (load.isPressed()) {post_load_setup= 1; delay(500);   load.setOff(); selectIn
   //*************
   //send selected to second page    // 
   //**************
-  if (sendOnPageTwo.isPressed()) {    // send THIS
+  if (sendOnPageTwo.isPressed() && i_sender >= 59 ) {    // send THIS
   
 //  setUIButtonsPosition();
   
@@ -3064,6 +3020,89 @@ CallbackListener close_mon = new CallbackListener() {
         
          elementData.get(idElement).nT.show();
       }
+        }
+        
+        
+        
+        
+        
+        
+        
+        public void sender ()
+        {
+          
+        i_sender ++;
+       
+    int i = i_sender;
+  //  delay(260);
+        
+  //   for (int i=0; i<60; i++) 
+    {
+     //  if (elementData.get(i).hide == 0) 
+      {
+      // if (page_selected == false  )
+       {
+        myBus.sendMessage(176+elementData.get(i).midiChannel-1, elementData.get(i).note[0], elementData.get(i).memoryPosition-1);
+        delay(delay_send);
+        if (  elementData.get(i).modifiers == 0) {
+          if (elementData.get(i).toggleMode == 21 || elementData.get(i).toggleMode == 22 || elementData.get(i).toggleMode == 19) 
+          myBus.sendMessage(176+elementData.get(i).midiChannel-1, elementData.get(i).setExcursionControllMax, elementData.get(i).setExcursionControllMin+32); // speed range -32 +32 viene inviata come 0-64
+          else myBus.sendMessage(176+elementData.get(i).midiChannel-1, elementData.get(i).setExcursionControllMax, elementData.get(i).setExcursionControllMin);
+        } else {
+          myBus.sendMessage(176+elementData.get(i).midiChannel-1, elementData.get(i).setExcursionControllMax, elementData.get(i).modifiers);
+        }
+        delay(delay_send);
+       if (elementData.get(i).hide == 0)  myBus.sendMessage(176+elementData.get(i).midiChannel-1, PApplet.parseInt(elementData.get(i).toggleMode), elementData.get(i).addressDMX);
+       else myBus.sendMessage(176+elementData.get(i).midiChannel-1, 0, elementData.get(i).addressDMX);
+       
+        delay(delay_send);
+        myBus.sendMessage(176+elementData.get(i).midiChannel-1, PApplet.parseInt(keyboard_out(elementData.get(i).keyBoard)), PApplet.parseInt ( elementData.get(i).indexMidiType ));
+        delay(delay_send);
+        myBus.sendMessage(176+elementData.get(i).midiChannel-1, PApplet.parseInt(elementData.get(i).led_), 0 );
+        delay(80);
+      //  break;
+      }
+     // else
+      {
+       myBus.sendMessage(176+elementData.get(i).midiChannel_2nd-1, elementData.get(i).note[1], elementData.get(i).memoryPosition+63);
+        delay(delay_send);
+        if (  elementData.get(i).modifiers == 0) {
+           if (elementData.get(i).toggleMode == 21 || elementData.get(i).toggleMode == 22 || elementData.get(i).toggleMode == 19) 
+          myBus.sendMessage(176+elementData.get(i).midiChannel_2nd-1, elementData.get(i).setExcursionControllMax_2nd, elementData.get(i).setExcursionControllMin_2nd+32);
+          else 
+          myBus.sendMessage(176+elementData.get(i).midiChannel_2nd-1, elementData.get(i).setExcursionControllMax_2nd, elementData.get(i).setExcursionControllMin_2nd);
+        
+        } else {
+          myBus.sendMessage(176+elementData.get(i).midiChannel_2nd-1, elementData.get(i).setExcursionControllMax_2nd, elementData.get(i).modifiers_2nd);
+        }
+        delay(delay_send);
+        if (elementData.get(i).hide == 0)  myBus.sendMessage(176+elementData.get(i).midiChannel_2nd-1, PApplet.parseInt(elementData.get(i).toggleMode_2nd), elementData.get(i).addressDMX_2nd);
+        else myBus.sendMessage(176+elementData.get(i).midiChannel_2nd-1, 0, elementData.get(i).addressDMX_2nd);
+        
+        delay(delay_send);
+        myBus.sendMessage(176+elementData.get(i).midiChannel_2nd-1, PApplet.parseInt(keyboard_out(elementData.get(i).keyBoard_2nd)), PApplet.parseInt ( elementData.get(i).indexMidiType_2nd ));
+          delay(delay_send);
+        myBus.sendMessage(176+elementData.get(i).midiChannel_2nd-1, PApplet.parseInt(elementData.get(i).led_), 0 );
+        delay(80);
+     //   break;
+      }
+      
+      }
+
+
+
+  
+    } 
+    
+    
+   
+    
+  stroke(150);
+  fill(0, 200, 0);
+
+ rect(gridCols[17],  gridRow[0]+rowBetw, gridCols[1]+(Betw2/5)+(i_sender*2), gridRow[1] 
+ ,4);
+        
         }
 String [] button_labels = {"Modifier", "Data byte1", "MINIMUM", "MAXIMUM", "MIDI CHANNEL", "DMX CHANNEL ", "MIDI TYPE", "MODE", "KEY", "HOT KEY", "", "","LED"}; // normal_labels
 String [] pot_labels = {"Modifier", "Data byte1", "MINIMUM", "MAXIMUM", "MIDI CHANNEL", "DMX CHANNEL ", "MIDI TYPE", "MODE", "", "", "", "","LED"};

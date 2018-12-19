@@ -1,5 +1,3 @@
- 
-
 ///////////////////////////
 //                       //
 // DART_EDITOR           //
@@ -72,6 +70,8 @@ int colore_ = 100;
 int channel_filter = 0;
 int value_filter = -1;
 long old_timestamp;
+
+int i_sender  = 61;
 
 int intro;
 
@@ -149,7 +149,7 @@ int old_value2;
 int raw1;
 int raw2;
 
-byte delay_send = 40;
+byte delay_send = 15;
 
 //**********************************
 //**********************************
@@ -270,23 +270,36 @@ void draw() {
   change();
 
   interfaceDisp();
-  
+   midiMonitor();
    
-  
+  if (i_sender >= 59) 
+  {
   elementListener(); // to trigger the button element of the dart
   explanationText();
    //  allarme_page_();
   //THE MIDI MONITOR in MIDIClass//
    // in midi class
   // delay(300);
-   midiMonitor();
+  
  keyPressed_();
  
  image_circuit();
 
 post_load_setup_();
  sawplay ();
+}
  
+else {
+  
+if (i_sender == 0) {   myBus.sendMessage(241, 0, 0); delay(50); 
+hints2.setText("SENDING the complete preset to the DART device");
+}
+sender();
+
+if (i_sender == 59)  myBus.sendMessage(241, 0, 0);
+
+}
+
 
 }
 /*void controllo_doppioni () {
