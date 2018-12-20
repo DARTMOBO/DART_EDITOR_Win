@@ -139,11 +139,15 @@ if (load.isPressed()) {post_load_setup= 1; delay(500);   load.setOff(); selectIn
        if (page_selected == false  ){
         myBus.sendMessage(176+elementData.get(i).midiChannel-1, elementData.get(i).note[0], elementData.get(i).memoryPosition-1);
         delay(delay_send);
-        if (  elementData.get(i).modifiers == 0) {
+       
+        if (  elementData.get(i).keyBoard == 0) 
+        {
           if (elementData.get(i).toggleMode == 21 || elementData.get(i).toggleMode == 22 || elementData.get(i).toggleMode == 19) 
           myBus.sendMessage(176+elementData.get(i).midiChannel-1, elementData.get(i).setExcursionControllMax, elementData.get(i).setExcursionControllMin+32); // speed range -32 +32 viene inviata come 0-64
           else myBus.sendMessage(176+elementData.get(i).midiChannel-1, elementData.get(i).setExcursionControllMax, elementData.get(i).setExcursionControllMin);
-        } else {
+        } 
+        
+        else {
           myBus.sendMessage(176+elementData.get(i).midiChannel-1, elementData.get(i).setExcursionControllMax, elementData.get(i).modifiers);
         }
         delay(delay_send);
@@ -159,15 +163,19 @@ if (load.isPressed()) {post_load_setup= 1; delay(500);   load.setOff(); selectIn
       {
        myBus.sendMessage(176+elementData.get(i).midiChannel_2nd-1, elementData.get(i).note[1], elementData.get(i).memoryPosition+63);
         delay(delay_send);
-        if (  elementData.get(i).modifiers == 0) {
+        
+        if (  elementData.get(i).keyBoard_2nd == 0) 
+        {
            if (elementData.get(i).toggleMode == 21 || elementData.get(i).toggleMode == 22 || elementData.get(i).toggleMode == 19) 
           myBus.sendMessage(176+elementData.get(i).midiChannel_2nd-1, elementData.get(i).setExcursionControllMax_2nd, elementData.get(i).setExcursionControllMin_2nd+32);
           else 
           myBus.sendMessage(176+elementData.get(i).midiChannel_2nd-1, elementData.get(i).setExcursionControllMax_2nd, elementData.get(i).setExcursionControllMin_2nd);
         
-        } else {
+        } 
+        else {
           myBus.sendMessage(176+elementData.get(i).midiChannel_2nd-1, elementData.get(i).setExcursionControllMax_2nd, elementData.get(i).modifiers_2nd);
         }
+        
         delay(delay_send);
         myBus.sendMessage(176+elementData.get(i).midiChannel_2nd-1, int(elementData.get(i).toggleMode_2nd), elementData.get(i).addressDMX_2nd);
         delay(delay_send);
@@ -560,7 +568,7 @@ CallbackListener close_mon = new CallbackListener() {
        {
         myBus.sendMessage(176+elementData.get(i).midiChannel-1, elementData.get(i).note[0], elementData.get(i).memoryPosition-1);
         delay(delay_send);
-        if (  elementData.get(i).modifiers == 0) {
+        if (  elementData.get(i).keyBoard == 0) {
           if (elementData.get(i).toggleMode == 21 || elementData.get(i).toggleMode == 22 || elementData.get(i).toggleMode == 19) 
           myBus.sendMessage(176+elementData.get(i).midiChannel-1, elementData.get(i).setExcursionControllMax, elementData.get(i).setExcursionControllMin+32); // speed range -32 +32 viene inviata come 0-64
           else myBus.sendMessage(176+elementData.get(i).midiChannel-1, elementData.get(i).setExcursionControllMax, elementData.get(i).setExcursionControllMin);
@@ -582,7 +590,7 @@ CallbackListener close_mon = new CallbackListener() {
       {
        myBus.sendMessage(176+elementData.get(i).midiChannel_2nd-1, elementData.get(i).note[1], elementData.get(i).memoryPosition+63);
         delay(delay_send);
-        if (  elementData.get(i).modifiers == 0) {
+        if (  elementData.get(i).keyBoard_2nd == 0) {
            if (elementData.get(i).toggleMode == 21 || elementData.get(i).toggleMode == 22 || elementData.get(i).toggleMode == 19) 
           myBus.sendMessage(176+elementData.get(i).midiChannel_2nd-1, elementData.get(i).setExcursionControllMax_2nd, elementData.get(i).setExcursionControllMin_2nd+32);
           else 
