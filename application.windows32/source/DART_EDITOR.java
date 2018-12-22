@@ -25,7 +25,7 @@ import java.io.IOException;
 
 public class DART_EDITOR extends PApplet {
 
-///////////////////////////
+/////////////////////////// //<>//
 //                       //
 // DART_EDITOR           //
 // Massimiliano Marchese //
@@ -33,9 +33,9 @@ public class DART_EDITOR extends PApplet {
 // www.dartmobo.com      //
 //                       //
 ///////////////////////////
-
+ //<>//
 //a
-//Import the library to create an interface //<>//
+//Import the library to create an interface //<>// //<>//
 
 //to work with file
 
@@ -177,6 +177,7 @@ int raw1;
 int raw2;
 
 byte delay_send = 15;
+byte show_piano ;
 
 //**********************************
 //**********************************
@@ -255,7 +256,7 @@ public void setup() {
  
 
      circuit_position = loadImage("pcb_memorypositions_transp.gif");
-       
+      piano =  loadImage("piano_keys.gif");
 
   for (int i=0; i<elementData.size(); i++) {
       elementData.get(i).setDisplay(false);
@@ -327,6 +328,7 @@ if (i_sender == 59)  myBus.sendMessage(241, 0, 0);
 
 }
 
+show_piano ();
 
 }
 /*void controllo_doppioni () {
@@ -747,7 +749,8 @@ if (change2 != change) {
 
 public void image_circuit() {
 if (infoGraph == 2000 || infoGraph == 2014) {image(circuit_position, (int) gridCols[1],(int)gridRow[8] //+rowBetw
-, (int) gridCols[15], (int) gridRow[16]+rowBetw); delay (10); delay(100);
+, (int) gridCols[15], (int) gridRow[16]+rowBetw); 
+delay (10); delay(100);
 //(int) gridCols[15]+Betw2/2,(int) gridRow[5]
 
 }
@@ -814,7 +817,18 @@ sawplay = true;}
    wave.setAmplitude( 0.5f );
 sawplay = false;}
 }
+
+public void show_piano ()
+{
+if (show_piano == 1) image(piano, gridCols[20]+(Betw2*0.95f)
+,gridRow[16]+rowBetw , 
+gridCols[3]-(Betw2/6),  gridCols[1]); 
+   // .setPosition(gridCols[20]+Betw2, gridRow[16]+rowBetw)
+   //  .setSize((int) gridCols[3],(int) gridCols[3]/12)
+}
 // sostituire la marola modifiers, con hotkeys
+
+// image(piano, (int) gridCols[1],(int)gridRow[8] , (int) gridCols[15], (int) gridRow[16]+rowBetw); 
  Table table;
 // *****************************************
 // init TABLE to set data // 
@@ -1035,6 +1049,8 @@ float [] gridCols = new float [cols];
 float W, H;
 PImage logo;//, jogWheel ; 
 PImage circuit_position;
+PImage piano;
+
 int spaceBetw;
 int Betw2;
 int Betw3;
@@ -2469,7 +2485,7 @@ public void firstPosition() {
     elementData.get(59).toggleMode= 26; 
      elementData.get(59).toggleMode_2nd= 26; 
   Button t = (Button)cp5.get("60");    
-     t.setLabel("g");
+     t.setLabel("G");
       elementData.get(59).plugga_page();
   
   
@@ -2760,9 +2776,9 @@ public void setUIButtonsPosition () {
   ;
   
 /////////////////////////////////////////////////////////////////////////////////////////////
-  scale1= control2.addMatrix("scale")
+  scale1= control2.addMatrix("")
      .setPosition(gridCols[20]+Betw2, gridRow[16]+rowBetw)
-     .setSize((int) gridCols[3],(int) gridCols[3]/12)
+     .setSize((int) gridCols[3]-(Betw2/4),(int) gridCols[3]/12)
      .setGrid(12, 1)
      .setGap(2, 2)
      //.setInterval(200)
@@ -2994,6 +3010,9 @@ CallbackListener close_mon = new CallbackListener() {
          
          if (elementData.get(idElement).dMode.getValue() == 21 || elementData.get(idElement).dMode.getValue() == 22  ) 
          {scale1.show(); 
+       //  image(piano, (int) gridCols[1],(int)gridRow[8] , (int) gridCols[15], (int) gridRow[16]+rowBetw); 
+       show_piano =1;
+         
          elementData.get(idElement).nT.hide();
            String temp_scale1;
            char bit_sc1;
@@ -3115,7 +3134,7 @@ CallbackListener close_mon = new CallbackListener() {
 String [] button_labels = {"Modifier", "Data byte1", "MINIMUM", "MAXIMUM", "MIDI CHANNEL", "DMX CHANNEL ", "MIDI TYPE", "MODE", "KEY", "HOT KEY", "", "","LED"}; // normal_labels
 String [] pot_labels = {"Modifier", "Data byte1", "MINIMUM", "MAXIMUM", "MIDI CHANNEL", "DMX CHANNEL ", "MIDI TYPE", "MODE", "", "", "", "","LED"};
 String [] page_labels = {"Page switch", "Data byte1", "Min", "Max", "MIDI CHANNEL", "", "MIDI TYPE", "MODE", "", "", "", "","LED"};
-String [] spin_labels = {"SPINNER", "Data byte1", "SPEED ", "", "MIDI CHANNEL", "JOG MODE", "MIDI TYPE", "MODE", "TOUCH-STOP", "", "", "","LED"};
+String [] spin_labels = {"SPINNER", "Data byte1", "SPEED ", "", "MIDI CHANNEL", "SPIN MODE", "MIDI TYPE", "MODE", "TOUCH-STOP", "", "", "","LED"};
 String [] touch_labels = {"TOUCH SENSOR", "Data byte1", "sensitivity", "LED OUT", "MIDI CHANNEL", "RESET VALUE ", "MIDI TYPE", "MODE", "RESET MODE", "", "", "","touch mode"};
 String [] mouse_labels = {"MOUSE EMULATOR", "MouseWheel", "X circuit pos", "Y circuit pos", "", "-/mouse/arrows", "", "MODE", "", "", "", "","LED"};
 String [] PADS_labels = {"PADS", "Data byte1", "", "", "MIDI CHANNEL", "", "MIDI TYPE", "MODE", "", "", "", "","LED"};
@@ -3196,7 +3215,7 @@ String []  DMX_Strings ={
 "RESET VALUE  \n 64 is mid position \n this value will be used for Touch-Reset function and Virtual-Touch-Reset function \n The Spinner value returns to the Reset Position if it is NOT used (touched or turned)", // touch sensor - reset value
 // -23 24
 "MOUSE/arrows setup \n 0 = NOT active \n 1 = MOUSE emulation \n 2 = Arrows emulation.", //-25
-"0 = NO Spinners . \n 1 = Top spinner ACTIVE. \n 2 = Side + Top spinner ACTIVE",
+"0 = NO Spinners . \n 1 = Top spinner ACTIVE. \n 2 = Side + Top spinner ACTIVE \n 3 = multiple encoders active",
 ""};
 
 String []  MIN_Strings ={
@@ -3859,10 +3878,20 @@ class myUI {
       fill(155);
     textSize(Betw2/1.6f);
     // textSize(Betw2/1.7);
-    text("MODIFIER "+label+" SETTiNGS", gridCols[17]+ Betw2*0.5f
-    , gridRow[3]+rowBetw*1.2f); // box settings  label
-  }
+    text("ITEM ", gridCols[17]+ Betw2*0.5f
+    , gridRow[3]  +rowBetw/2
+    ); // box settings  label
   
+ 
+      text("SETTINGS", gridCols[17]+ Betw2*0.5f
+    , gridRow[4] //+rowBetw*1.2
+    ); // box settings  label
+  
+   fill(255);
+      text(label, gridCols[18]+ Betw2*0.5f
+    , gridRow[3]+rowBetw/2); // box settings  label
+    
+  }
   
   //TO EDIT THE NUMBER OF SETTINGS IN NUMBERBOX
  /*  makeEditable( nT );

@@ -276,9 +276,9 @@ void setUIButtonsPosition () {
   ;
   
 /////////////////////////////////////////////////////////////////////////////////////////////
-  scale1= control2.addMatrix("scale")
+  scale1= control2.addMatrix("")
      .setPosition(gridCols[20]+Betw2, gridRow[16]+rowBetw)
-     .setSize((int) gridCols[3],(int) gridCols[3]/12)
+     .setSize((int) gridCols[3]-(Betw2/4),(int) gridCols[3]/12)
      .setGrid(12, 1)
      .setGap(2, 2)
      //.setInterval(200)
@@ -510,6 +510,9 @@ CallbackListener close_mon = new CallbackListener() {
          
          if (elementData.get(idElement).dMode.getValue() == 21 || elementData.get(idElement).dMode.getValue() == 22  ) 
          {scale1.show(); 
+       //  image(piano, (int) gridCols[1],(int)gridRow[8] , (int) gridCols[15], (int) gridRow[16]+rowBetw); 
+       show_piano =1;
+         
          elementData.get(idElement).nT.hide();
            String temp_scale1;
            char bit_sc1;

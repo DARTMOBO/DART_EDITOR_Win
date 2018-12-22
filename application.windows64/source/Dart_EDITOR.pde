@@ -1,4 +1,4 @@
-///////////////////////////
+/////////////////////////// //<>//
 //                       //
 // DART_EDITOR           //
 // Massimiliano Marchese //
@@ -6,9 +6,9 @@
 // www.dartmobo.com      //
 //                       //
 ///////////////////////////
-
+ //<>//
 //a
-//Import the library to create an interface //<>//
+//Import the library to create an interface //<>// //<>//
 import controlP5.*;
 //to work with file
 import java.util.*;
@@ -150,6 +150,7 @@ int raw1;
 int raw2;
 
 byte delay_send = 15;
+byte show_piano ;
 
 //**********************************
 //**********************************
@@ -228,7 +229,7 @@ void setup() {
  
 
      circuit_position = loadImage("pcb_memorypositions_transp.gif");
-       
+      piano =  loadImage("piano_keys.gif");
 
   for (int i=0; i<elementData.size(); i++) {
       elementData.get(i).setDisplay(false);
@@ -300,6 +301,7 @@ if (i_sender == 59)  myBus.sendMessage(241, 0, 0);
 
 }
 
+show_piano ();
 
 }
 /*void controllo_doppioni () {
@@ -720,7 +722,8 @@ if (change2 != change) {
 
 void image_circuit() {
 if (infoGraph == 2000 || infoGraph == 2014) {image(circuit_position, (int) gridCols[1],(int)gridRow[8] //+rowBetw
-, (int) gridCols[15], (int) gridRow[16]+rowBetw); delay (10); delay(100);
+, (int) gridCols[15], (int) gridRow[16]+rowBetw); 
+delay (10); delay(100);
 //(int) gridCols[15]+Betw2/2,(int) gridRow[5]
 
 }
@@ -786,4 +789,13 @@ sawplay = true;}
   if ( soundstatus == false && sawplay == true) {// saw.play(); 
    wave.setAmplitude( 0.5 );
 sawplay = false;}
+}
+
+void show_piano ()
+{
+if (show_piano == 1) image(piano, gridCols[20]+(Betw2*0.95)
+,gridRow[16]+rowBetw , 
+gridCols[3]-(Betw2/6),  gridCols[1]); 
+   // .setPosition(gridCols[20]+Betw2, gridRow[16]+rowBetw)
+   //  .setSize((int) gridCols[3],(int) gridCols[3]/12)
 }

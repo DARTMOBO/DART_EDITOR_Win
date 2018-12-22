@@ -54,7 +54,7 @@ void firstPosition() {
     elementData.get(59).toggleMode= 26; 
      elementData.get(59).toggleMode_2nd= 26; 
   Button t = (Button)cp5.get("60");    
-     t.setLabel("g");
+     t.setLabel("G");
       elementData.get(59).plugga_page();
   
   

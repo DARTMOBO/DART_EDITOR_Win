@@ -492,10 +492,20 @@ class myUI {
       fill(155);
     textSize(Betw2/1.6);
     // textSize(Betw2/1.7);
-    text("MODIFIER "+label+" SETTiNGS", gridCols[17]+ Betw2*0.5
-    , gridRow[3]+rowBetw*1.2); // box settings  label
-  }
+    text("ITEM ", gridCols[17]+ Betw2*0.5
+    , gridRow[3]  +rowBetw/2
+    ); // box settings  label
   
+ 
+      text("SETTINGS", gridCols[17]+ Betw2*0.5
+    , gridRow[4] //+rowBetw*1.2
+    ); // box settings  label
+  
+   fill(255);
+      text(label, gridCols[18]+ Betw2*0.5
+    , gridRow[3]+rowBetw/2); // box settings  label
+    
+  }
   
   //TO EDIT THE NUMBER OF SETTINGS IN NUMBERBOX
  /*  makeEditable( nT );

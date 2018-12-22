@@ -9,6 +9,8 @@ float [] gridCols = new float [cols];
 float W, H;
 PImage logo;//, jogWheel ; 
 PImage circuit_position;
+PImage piano;
+
 int spaceBetw;
 int Betw2;
 int Betw3;

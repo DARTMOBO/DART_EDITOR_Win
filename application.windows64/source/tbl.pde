@@ -1,7 +1,7 @@
 String [] button_labels = {"Modifier", "Data byte1", "MINIMUM", "MAXIMUM", "MIDI CHANNEL", "DMX CHANNEL ", "MIDI TYPE", "MODE", "KEY", "HOT KEY", "", "","LED"}; // normal_labels
 String [] pot_labels = {"Modifier", "Data byte1", "MINIMUM", "MAXIMUM", "MIDI CHANNEL", "DMX CHANNEL ", "MIDI TYPE", "MODE", "", "", "", "","LED"};
 String [] page_labels = {"Page switch", "Data byte1", "Min", "Max", "MIDI CHANNEL", "", "MIDI TYPE", "MODE", "", "", "", "","LED"};
-String [] spin_labels = {"SPINNER", "Data byte1", "SPEED ", "", "MIDI CHANNEL", "JOG MODE", "MIDI TYPE", "MODE", "TOUCH-STOP", "", "", "","LED"};
+String [] spin_labels = {"SPINNER", "Data byte1", "SPEED ", "", "MIDI CHANNEL", "SPIN MODE", "MIDI TYPE", "MODE", "TOUCH-STOP", "", "", "","LED"};
 String [] touch_labels = {"TOUCH SENSOR", "Data byte1", "sensitivity", "LED OUT", "MIDI CHANNEL", "RESET VALUE ", "MIDI TYPE", "MODE", "RESET MODE", "", "", "","touch mode"};
 String [] mouse_labels = {"MOUSE EMULATOR", "MouseWheel", "X circuit pos", "Y circuit pos", "", "-/mouse/arrows", "", "MODE", "", "", "", "","LED"};
 String [] PADS_labels = {"PADS", "Data byte1", "", "", "MIDI CHANNEL", "", "MIDI TYPE", "MODE", "", "", "", "","LED"};
@@ -82,7 +82,7 @@ String []  DMX_Strings ={
 "RESET VALUE  \n 64 is mid position \n this value will be used for Touch-Reset function and Virtual-Touch-Reset function \n The Spinner value returns to the Reset Position if it is NOT used (touched or turned)", // touch sensor - reset value
 // -23 24
 "MOUSE/arrows setup \n 0 = NOT active \n 1 = MOUSE emulation \n 2 = Arrows emulation.", //-25
-"0 = NO Spinners . \n 1 = Top spinner ACTIVE. \n 2 = Side + Top spinner ACTIVE",
+"0 = NO Spinners . \n 1 = Top spinner ACTIVE. \n 2 = Side + Top spinner ACTIVE \n 3 = multiple encoders active",
 ""};
 
 String []  MIN_Strings ={
