@@ -664,7 +664,7 @@ dKeys.plugTo( this, "keyBoard" ); dKeys.plugTo( this, "keyBoard_2nd" );
                           dmx.hide(); 
             midiC.hide(); 
             midiTypeOpt.hide();
-            scale1.hide();
+            scale1.hide(); show_piano =0;
                 dMode.show();
                  }
                  
@@ -691,7 +691,7 @@ dKeys.plugTo( this, "keyBoard" ); dKeys.plugTo( this, "keyBoard_2nd" );
               dmx.show(); 
             midiC.show(); 
             midiTypeOpt.show();
-            scale1.hide();
+            scale1.hide(); show_piano =0;
                 dMode.show();     
          }
          
@@ -718,7 +718,7 @@ else if (dMode.getValue() <17 ) {  // pot e hypercurve
               dmx.show(); 
             midiC.show(); 
             midiTypeOpt.show();
-            scale1.hide();
+            scale1.hide(); show_piano =0;
                 dMode.show();     
          }
          
@@ -742,7 +742,7 @@ else if (dMode.getValue() == 17) {    // page
                           dmx.hide(); 
             midiC.show(); 
             midiTypeOpt.show();
-            scale1.hide();
+            scale1.hide(); show_piano =0;
                 dMode.show();
                  }
                  
@@ -767,7 +767,7 @@ else if (dMode.getValue() == 18) {  // distance
                           dmx.show(); 
             midiC.show();
             midiTypeOpt.show();
-         scale1.hide();
+         scale1.hide(); show_piano =0;
           dMode.show();
                  }
                  
@@ -818,7 +818,7 @@ else if (dMode.getValue() == 20) {
                           dmx.hide(); 
             midiC.show(); 
             midiTypeOpt.show();
-         scale1.hide();
+         scale1.hide(); show_piano =0;
              dMode.show();
                  }
                  
@@ -870,7 +870,7 @@ else if (dMode.getValue() == 23 || dMode.getValue() == 24) {
                           dmx.show(); 
             midiC.show(); 
             midiTypeOpt.show();
-            scale1.hide();
+            scale1.hide(); show_piano =0;
                 dMode.show();
          
                  }
@@ -901,7 +901,7 @@ else if (dMode.getValue() == 23 || dMode.getValue() == 24) {
                           dmx.show(); 
             midiC.hide(); 
             midiTypeOpt.hide();
-            scale1.hide();
+            scale1.hide(); show_piano =0;
                 dMode.show();
          
                  }
@@ -926,7 +926,7 @@ else if (dMode.getValue() == 26) {
                           dmx.show(); 
             midiC.hide(); 
             midiTypeOpt.hide();
-            scale1.hide();
+            scale1.hide(); show_piano =0;
               dMode.show();
          
                  }

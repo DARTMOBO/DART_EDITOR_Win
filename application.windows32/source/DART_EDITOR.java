@@ -25,7 +25,7 @@ import java.io.IOException;
 
 public class DART_EDITOR extends PApplet {
 
-/////////////////////////// //<>//
+///////////////////////////
 //                       //
 // DART_EDITOR           //
 // Massimiliano Marchese //
@@ -33,9 +33,9 @@ public class DART_EDITOR extends PApplet {
 // www.dartmobo.com      //
 //                       //
 ///////////////////////////
- //<>//
+
 //a
-//Import the library to create an interface //<>// //<>//
+//Import the library to create an interface //<>//
 
 //to work with file
 
@@ -2557,7 +2557,7 @@ if (save.isPressed() && i_sender >= 59) { delay(500); save.setOff(); selectOutpu
 if (load.isPressed()) {post_load_setup= 1; delay(500);   load.setOff(); selectInput("Load Editor Settings:", "fileToLoad"); load.setOff();}
 
 
-  
+  ////// SELETTORE PAGE
   if (sendFirstPage.isPressed() && i_sender >= 59) {      // selettore page - anche se si chiama send
       page_selected = false;
       sendSecondPage.setOff();      
@@ -2592,45 +2592,9 @@ if (load.isPressed()) {post_load_setup= 1; delay(500);   load.setOff(); selectIn
   
   
   
- /* 
- if (sendOnPageOne.isPressed()) {
-    myBus.sendMessage(241, 0, 0);
-    // myBus.sendMessage(242, 0, 0); 
-    delay(160);
-    for (int i=0; i<elementData.size(); i++) {
-      if (elementData.get(i).getStateDisplay())    {
-        myBus.sendMessage(176+elementData.get(i).midiChannel-1, elementData.get(i).note, elementData.get(i).memoryPosition);
-        delay(4);
-        if (  elementData.get(i).modifiers == 0) {
-          myBus.sendMessage(176+elementData.get(i).midiChannel-1, elementData.get(i).setExcursionControllMax, elementData.get(i).setExcursionControllMin);
-        } else {
-          myBus.sendMessage(176+elementData.get(i).midiChannel-1, elementData.get(i).setExcursionControllMax, elementData.get(i).modifiers);
-        }
-        delay(4);
-        myBus.sendMessage(elementData.get(i).led_+128, int(elementData.get(i).toggleMode), elementData.get(i).addressDMX);
-        delay(4);
-        myBus.sendMessage(176+elementData.get(i).midiChannel-1, int(elementData.get(i).keyBoard),int ( elementData.get(i).indexMidiType ));
-        delay(160);
-        break;
-      }
-    } 
-    myBus.sendMessage(241, 0, 0);
-  }
-  */
-  
-  //*************
-  //send selected to second page    // 
-  //**************
-  if (sendOnPageTwo.isPressed() && i_sender >= 59 ) {    // send THIS
-  
-//  setUIButtonsPosition();
-  
-  // SisButton.1007.fill(ControlP5.ORANGE);
-     // sendOnPageTwo.update();
- //    sendOnPageTwo.setUpdate(true);
-   //   sendOnPageTwo.update();
-     //    sendOnPageTwo.setView(new SisButton());
-  //  interfaceDisp();
+
+  if (sendOnPageTwo.isPressed() && i_sender >= 59 ) {                 // send THIS
+
     myBus.sendMessage(241, 0, 0);
     delay(260);
     for (int i=0; i<60; i++) {
@@ -3043,7 +3007,9 @@ CallbackListener close_mon = new CallbackListener() {
           
          // scale1.set(2, 0,  true) ;
         }
-        if (elementData.get(idElement).midiTypeOpt.getValue() != 0 || elementData.get(idElement).dmx.getValue() != 2)  {scale1.hide(); 
+        if (elementData.get(idElement).midiTypeOpt.getValue() != 0 || elementData.get(idElement).dmx.getValue() != 2)  
+        if (elementData.get(idElement).dMode.getValue() == 21 || elementData.get(idElement).dMode.getValue() == 22 )
+        {scale1.hide(); show_piano = 0;
         
          elementData.get(idElement).nT.show();
       }
@@ -4050,7 +4016,7 @@ dKeys.plugTo( this, "keyBoard" ); dKeys.plugTo( this, "keyBoard_2nd" );
                           dmx.hide(); 
             midiC.hide(); 
             midiTypeOpt.hide();
-            scale1.hide();
+            scale1.hide(); show_piano =0;
                 dMode.show();
                  }
                  
@@ -4077,7 +4043,7 @@ dKeys.plugTo( this, "keyBoard" ); dKeys.plugTo( this, "keyBoard_2nd" );
               dmx.show(); 
             midiC.show(); 
             midiTypeOpt.show();
-            scale1.hide();
+            scale1.hide(); show_piano =0;
                 dMode.show();     
          }
          
@@ -4104,7 +4070,7 @@ else if (dMode.getValue() <17 ) {  // pot e hypercurve
               dmx.show(); 
             midiC.show(); 
             midiTypeOpt.show();
-            scale1.hide();
+            scale1.hide(); show_piano =0;
                 dMode.show();     
          }
          
@@ -4128,7 +4094,7 @@ else if (dMode.getValue() == 17) {    // page
                           dmx.hide(); 
             midiC.show(); 
             midiTypeOpt.show();
-            scale1.hide();
+            scale1.hide(); show_piano =0;
                 dMode.show();
                  }
                  
@@ -4153,7 +4119,7 @@ else if (dMode.getValue() == 18) {  // distance
                           dmx.show(); 
             midiC.show();
             midiTypeOpt.show();
-         scale1.hide();
+         scale1.hide(); show_piano =0;
           dMode.show();
                  }
                  
@@ -4204,7 +4170,7 @@ else if (dMode.getValue() == 20) {
                           dmx.hide(); 
             midiC.show(); 
             midiTypeOpt.show();
-         scale1.hide();
+         scale1.hide(); show_piano =0;
              dMode.show();
                  }
                  
@@ -4256,7 +4222,7 @@ else if (dMode.getValue() == 23 || dMode.getValue() == 24) {
                           dmx.show(); 
             midiC.show(); 
             midiTypeOpt.show();
-            scale1.hide();
+            scale1.hide(); show_piano =0;
                 dMode.show();
          
                  }
@@ -4287,7 +4253,7 @@ else if (dMode.getValue() == 23 || dMode.getValue() == 24) {
                           dmx.show(); 
             midiC.hide(); 
             midiTypeOpt.hide();
-            scale1.hide();
+            scale1.hide(); show_piano =0;
                 dMode.show();
          
                  }
@@ -4312,7 +4278,7 @@ else if (dMode.getValue() == 26) {
                           dmx.show(); 
             midiC.hide(); 
             midiTypeOpt.hide();
-            scale1.hide();
+            scale1.hide(); show_piano =0;
               dMode.show();
          
                  }

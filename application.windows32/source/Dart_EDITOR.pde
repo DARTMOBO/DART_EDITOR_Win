@@ -1,4 +1,4 @@
-/////////////////////////// //<>//
+///////////////////////////
 //                       //
 // DART_EDITOR           //
 // Massimiliano Marchese //
@@ -6,9 +6,9 @@
 // www.dartmobo.com      //
 //                       //
 ///////////////////////////
- //<>//
+
 //a
-//Import the library to create an interface //<>// //<>//
+//Import the library to create an interface //<>//
 import controlP5.*;
 //to work with file
 import java.util.*;
