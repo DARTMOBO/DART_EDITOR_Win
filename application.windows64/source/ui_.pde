@@ -897,7 +897,7 @@ else if (dMode.getValue() == 23 || dMode.getValue() == 24) {
                      min.show(); 
                       min.setRange(0,127);
             max.show(); 
-            led.hide(); 
+            led.show(); 
                           dmx.show(); 
             midiC.hide(); 
             midiTypeOpt.hide();

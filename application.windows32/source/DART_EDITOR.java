@@ -176,7 +176,7 @@ int old_value2;
 int raw1;
 int raw2;
 
-byte delay_send = 15;
+byte delay_send = 20;
 byte show_piano ;
 
 //**********************************
@@ -3102,7 +3102,7 @@ String [] pot_labels = {"Modifier", "Data byte1", "MINIMUM", "MAXIMUM", "MIDI CH
 String [] page_labels = {"Page switch", "Data byte1", "Min", "Max", "MIDI CHANNEL", "", "MIDI TYPE", "MODE", "", "", "", "","LED"};
 String [] spin_labels = {"SPINNER", "Data byte1", "SPEED ", "", "MIDI CHANNEL", "SPIN MODE", "MIDI TYPE", "MODE", "TOUCH-STOP", "", "", "","LED"};
 String [] touch_labels = {"TOUCH SENSOR", "Data byte1", "sensitivity", "LED OUT", "MIDI CHANNEL", "RESET VALUE ", "MIDI TYPE", "MODE", "RESET MODE", "", "", "","touch mode"};
-String [] mouse_labels = {"MOUSE EMULATOR", "MouseWheel", "X circuit pos", "Y circuit pos", "", "-/mouse/arrows", "", "MODE", "", "", "", "","LED"};
+String [] mouse_labels = {"MOUSE EMULATOR", "MouseWheel", "X circuit pos", "Y circuit pos", "", "-/mouse/arrows", "", "MODE", "", "", "", "","1 = INVERT"};
 String [] PADS_labels = {"PADS", "Data byte1", "", "", "MIDI CHANNEL", "", "MIDI TYPE", "MODE", "", "", "", "","LED"};
 String [] distance_labels = {"DISTANCE SENSOR", "Data byte1", "MIN", "MAX", "MIDI CHANNEL", "DMX CHANNEL", "", "MODE", "POT/BUTTON/scale", "", "", "","LED"};
 String [] GENERAL_labels = {"GENERAL SETUP","1= NoMobo","1= ExtraPlex", "0= PADS", ".", "spinners", ".", "MODE", "LED EFX", ".", ".", ".","LED"};
@@ -4249,7 +4249,7 @@ else if (dMode.getValue() == 23 || dMode.getValue() == 24) {
                      min.show(); 
                       min.setRange(0,127);
             max.show(); 
-            led.hide(); 
+            led.show(); 
                           dmx.show(); 
             midiC.hide(); 
             midiTypeOpt.hide();

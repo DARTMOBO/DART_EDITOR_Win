@@ -149,7 +149,7 @@ int old_value2;
 int raw1;
 int raw2;
 
-byte delay_send = 15;
+byte delay_send = 20;
 byte show_piano ;
 
 //**********************************
