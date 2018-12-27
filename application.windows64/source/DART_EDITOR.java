@@ -99,6 +99,7 @@ int value_filter = -1;
 long old_timestamp;
 
 int i_sender  = 61;
+int init_initmidi;
 
 int intro;
 
@@ -136,6 +137,7 @@ byte input_remap[] = {
 
 String scala1 ="_";
 String scala2 ="_";
+String Dart_device;
 
 
 boolean write_mon = false;
@@ -185,78 +187,23 @@ byte show_piano ;
 
 
 public void setup() {
-    
  
-      
 //  size(820, 640);
  
   settingScreen();    // settaggi spaziatura
 
-
-
-
- //  fill(0, 255, 0);
-//  textSize(Betw2/1.7);
-//  text("massimiliano", 30 , 30  ); delay (300);
-  
- 
-
-
- 
-
-
-  
-  
-
-  
   background(100);
-//stroke(150);
- // fill(50, 200, 100);
-  //rect(18,  18, 200, 200   ,7);  
-   
- //    logo = loadImage("logo.gif"); 
-  // image(logo, width/2-150, 10);
-  
- 
- 
-  initMidi();
-  myBus = new MidiBus(this, inD, outD);   
-  myBus.sendTimestamps(false);
 
-  
-    
-    // settaggi font e libreria cp5
-  
- //fill(0, 255, 0);
- //textSize(Betw2/1.7);
- // text("massimiliano", 600 , 30  ); //delay (3000);
-
- 
-//  initMidi();
-//  myBus = new MidiBus(this, inD, outD);   
-//  myBus.sendTimestamps(false);
-
-
-  //**********************
-  // for showing the logo 
-  //**********************
-
- // logo = loadImage("logo.gif"); 
- 
- // image(logo, width/2-150, 10);
-
- 
  init(); // cp5 library
   
 
   // THE BUTTON POSITION AND POLYMORFISM in ElementPosition class//
   setUIButtonsPosition(); // panel b
   initTableOfElementData(); // panel b
- setupElement (); // element position
+  setupElement (); // element position
  
-
-     circuit_position = loadImage("pcb_memorypositions_transp.gif");
-      piano =  loadImage("piano_keys.gif");
+  circuit_position = loadImage("pcb_memorypositions_transp.gif");
+  piano =  loadImage("piano_keys.gif");
 
   for (int i=0; i<elementData.size(); i++) {
       elementData.get(i).setDisplay(false);
@@ -290,6 +237,7 @@ loadTableSettings("Default_preset.csv");
 
 }
 public void draw() {
+   init_initmidi();
   
  
   
@@ -825,6 +773,19 @@ if (show_piano == 1) image(piano, gridCols[20]+(Betw2*0.95f)
 gridCols[3]-(Betw2/6),  gridCols[1]); 
    // .setPosition(gridCols[20]+Betw2, gridRow[16]+rowBetw)
    //  .setSize((int) gridCols[3],(int) gridCols[3]/12)
+}
+
+public void init_initmidi()
+{
+  if (init_initmidi ==0 ){
+ //     fill(0, 255, 0);
+ // textSize(Betw2/1.7);
+ //  text("grgrgrgr ", gridCols[2]+(Betw2*0.4), (int) gridRow[1]+rowBetw*2.4); delay (400);
+  
+    initMidi();
+  myBus = new MidiBus(this, inD, outD);   
+  myBus.sendTimestamps(false);
+  init_initmidi =1;}
 }
 // sostituire la marola modifiers, con hotkeys
 
@@ -1536,7 +1497,7 @@ public void initMidi() {
   } 
   
  MidiBus.findMidiDevices();
-  MidiBus.list();
+//  MidiBus.list();
   // List all available Midi devices on STDOUT. This will show each device's index and name.
   String [] deviceIn= MidiBus.availableInputs();
   String [] deviceOut=MidiBus.availableOutputs();
@@ -1547,25 +1508,21 @@ public void initMidi() {
 
   //----------------------------------------------------------------------------------------  auto link to DART controller
   
- /* for (int i=0; i<deviceIn.length; i++) {
+  for (int i=0; i<deviceIn.length; i++) {
     if (deviceIn[i].equals( "DART") || deviceIn[i].indexOf("DART") != -1)
     { 
-      checkIN=true;
-      DartIN =i;
-      println(DartIN);
-      break;
+ 
+     Dart_device = "DART";
     }
-  }
-  for (int i=0; i<deviceOut.length; i++) {
-    if (deviceOut[i].equals("DART") || deviceOut[i].indexOf("DART") != -1)
+     if (deviceIn[i].equals( "Arduino Leonardo") || deviceIn[i].indexOf("Arduino Leonardo") != -1)
     { 
-      checkOUT=true;
-      DartOUT =i;
-      println(DartOUT);
-      break;
+ 
+     Dart_device = "Arduino Leonardo";
     }
+    
   }
-  */
+ 
+  
   //----------------------------------------------------------------------------------------
   
   
@@ -1575,12 +1532,15 @@ public void initMidi() {
 
     String inputOpt = (String) JOptionPane.showInputDialog(
       null, //component parentComponent
-      "Dart In", //object message
-      "DART EDITOR", //string title
-      JOptionPane.QUESTION_MESSAGE, // int messagetype
+      "DART - MIDI In", //object message
+      "DART_EDITOR", //string title
+     JOptionPane.QUESTION_MESSAGE, // int messagetype
+   // null,
       null, //icon icon
       deviceIn, // object [] section values
-      deviceIn[0]); // object initial values
+    //  deviceIn[2]); // object initial values
+      Dart_device);
+      
     for (int i=0; i<deviceIn.length; i++) {
       if (deviceIn[i].equals(inputOpt))
       { 
@@ -1593,12 +1553,12 @@ public void initMidi() {
 
     String outputOpt = (String) JOptionPane.showInputDialog(
       null, 
-      "Dart Out", 
-      "DART EDITOR", 
+      "DART - m MIDI Out", 
+      "DART_EDITOR", 
       JOptionPane.QUESTION_MESSAGE, 
       null, 
       deviceOut, 
-      deviceOut[0]);
+       Dart_device);
     for (int i=0; i<deviceOut.length; i++) {
       if (deviceOut[i].equals(outputOpt))
       { 

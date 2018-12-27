@@ -20,7 +20,7 @@ void initMidi() {
   } 
   
  MidiBus.findMidiDevices();
-  MidiBus.list();
+//  MidiBus.list();
   // List all available Midi devices on STDOUT. This will show each device's index and name.
   String [] deviceIn= MidiBus.availableInputs();
   String [] deviceOut=MidiBus.availableOutputs();
@@ -31,25 +31,21 @@ void initMidi() {
 
   //----------------------------------------------------------------------------------------  auto link to DART controller
   
- /* for (int i=0; i<deviceIn.length; i++) {
+  for (int i=0; i<deviceIn.length; i++) {
     if (deviceIn[i].equals( "DART") || deviceIn[i].indexOf("DART") != -1)
     { 
-      checkIN=true;
-      DartIN =i;
-      println(DartIN);
-      break;
+ 
+     Dart_device = "DART";
     }
-  }
-  for (int i=0; i<deviceOut.length; i++) {
-    if (deviceOut[i].equals("DART") || deviceOut[i].indexOf("DART") != -1)
+     if (deviceIn[i].equals( "Arduino Leonardo") || deviceIn[i].indexOf("Arduino Leonardo") != -1)
     { 
-      checkOUT=true;
-      DartOUT =i;
-      println(DartOUT);
-      break;
+ 
+     Dart_device = "Arduino Leonardo";
     }
+    
   }
-  */
+ 
+  
   //----------------------------------------------------------------------------------------
   
   
@@ -59,12 +55,15 @@ void initMidi() {
 
     String inputOpt = (String) JOptionPane.showInputDialog(
       null, //component parentComponent
-      "Dart In", //object message
-      "DART EDITOR", //string title
-      JOptionPane.QUESTION_MESSAGE, // int messagetype
+      "DART - MIDI In", //object message
+      "DART_EDITOR", //string title
+     JOptionPane.QUESTION_MESSAGE, // int messagetype
+   // null,
       null, //icon icon
       deviceIn, // object [] section values
-      deviceIn[0]); // object initial values
+    //  deviceIn[2]); // object initial values
+      Dart_device);
+      
     for (int i=0; i<deviceIn.length; i++) {
       if (deviceIn[i].equals(inputOpt))
       { 
@@ -77,12 +76,12 @@ void initMidi() {
 
     String outputOpt = (String) JOptionPane.showInputDialog(
       null, 
-      "Dart Out", 
-      "DART EDITOR", 
+      "DART - m MIDI Out", 
+      "DART_EDITOR", 
       JOptionPane.QUESTION_MESSAGE, 
       null, 
       deviceOut, 
-      deviceOut[0]);
+       Dart_device);
     for (int i=0; i<deviceOut.length; i++) {
       if (deviceOut[i].equals(outputOpt))
       { 
