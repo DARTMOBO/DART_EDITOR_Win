@@ -27,7 +27,7 @@ public class DART_EDITOR extends PApplet {
 
 /////////////////////////// //<>//
 //                       //
-// DART_EDITOR           //
+// DART_EDITOR  V1.55    //
 // Massimiliano Marchese //
 // Piero pappalardo      //
 // www.dartmobo.com      //
@@ -486,7 +486,7 @@ public void keyPressed_ () {
      add_element = true;
    for (int ix=0; ix< 60 ; ix++) {   
    //  elementData.size
-     Button t = (Button)cp5.get(Integer.toString(ix+1));
+     Knob t = (Knob)cp5.get(Integer.toString(ix+1));
   //int mouse_X = (mouseX/35)*35;
  // int mouse_Y = (mouseY/35)*35;
  // mouse_X = mouse_X*50;
@@ -518,7 +518,7 @@ public void keyPressed_ () {
   if (key == '-' || key =='8') if ( control_key== true //&& elementData.get(idElement).toggleMode != 26
   )
   if (elementData.get(idElement).toggleMode != 26) {
-    Button t = (Button)cp5.get(Integer.toString(idElement+1));
+    Knob t = (Knob)cp5.get(Integer.toString(idElement+1));
   t.hide();
   elementData.get(idElement).hide = 1;
       elementData.get(idElement).toggleMode = 0;
