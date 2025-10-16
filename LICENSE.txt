@@ -1,0 +1,87 @@
+DART Editor — LICENZA D’USO (EULA)
+Versione 1.0 — 16 ottobre 2025
+
+© 2025 Massimiliano Marchese. Tutti i diritti riservati.
+Prodotto: “DART Editor (Processing) per Windows”
+Sito: https://dartmobo.com
+
+1) Definizioni
+“Licenziante” indica Massimiliano Marchese. “Software” indica l’applicazione eseguibile denominata
+“DART Editor (Processing) per Windows”, compresi file, documentazione inclusa nel pacchetto e
+eventuali aggiornamenti che il Licenziante renda disponibili. “Utente” indica la persona fisica o
+giuridica che installa/usa il Software.
+
+2) Concessione di licenza
+Il Licenziante concede all’Utente una licenza personale, non esclusiva, non trasferibile e revocabile
+per usare gratuitamente il Software su dispositivi Windows di propria disponibilità, per scopi sia
+personali sia professionali. Il Software non è venduto ma concesso in licenza.
+
+3) Usi consentiti
+a) Eseguire e utilizzare il Software come applicazione portabile. 
+b) Utilizzare il Software per finalità personali o professionali, senza corrispettivo al Licenziante.
+c) Eseguire copie di backup del pacchetto, per uso personale dell’Utente.
+
+4) Restrizioni
+Senza previa autorizzazione scritta del Licenziante, è vietato:
+a) modificare, tradurre, adattare, decompilare, effettuare reverse engineering o creare opere
+   derivate dal Software, salvo quanto inderogabilmente consentito dalla legge applicabile
+   (es. finalità di interoperabilità);
+b) rimuovere o alterare avvisi/crediti/termini di licenza presenti nel pacchetto;
+c) distribuire, rivendere, noleggiare, concedere in leasing o fornire il Software a terzi come servizio;
+d) incorporare il Software in prodotti/installer di terzi o pacchetti combinati che cambino struttura
+   o contenuto originale del pacchetto.
+
+5) Redistribuzione
+È consentita la sola redistribuzione gratuita del pacchetto originale, non modificato, a condizione che:
+a) siano mantenuti integralmente tutti i file, inclusi README, LICENSE, cartella “licenses/” e avvisi;
+b) non venga richiesto alcun corrispettivo, prezzo o contributo per il Software (anche indiretto);
+c) venga indicata la fonte originale (https://dartmobo.com) e l’autore (Massimiliano Marchese).
+Ogni altro tipo di redistribuzione richiede consenso scritto del Licenziante.
+
+6) Proprietà intellettuale
+Il Software è protetto da diritto d’autore e norme internazionali. Tutti i diritti non espressamente
+concessi restano riservati al Licenziante.
+
+7) Componenti di terze parti
+Il pacchetto può includere o richiamare componenti di terze parti soggetti a licenze differenti
+(ad esempio: Oracle Java SE Runtime Environment 8u202; librerie Processing come ControlP5, The
+MidiBus, Minim). Tali componenti restano regolati dai rispettivi termini; vedere i file nella cartella
+“licenses/” (es. ORACLE_JRE_8u202.txt, THIRD_PARTY_NOTICES.txt) e i testi di licenza collegati.
+Se il Software è distribuito con librerie sotto licenza LGPL in file separati e non modificati, la loro
+sostituibilità/indipendenza resta garantita nei limiti previsti da tali licenze.
+
+8) Assenza di garanzie
+IL SOFTWARE È FORNITO “COSÌ COM’È” (“AS IS”) SENZA ALCUNA GARANZIA ESPRESSA O IMPLICITA,
+INCLUSE, A TITOLO ESEMPLIFICATIVO, LE GARANZIE DI COMMERCIALITÀ, IDONEITÀ PER UNO SCOPO
+PARTICOLARE, E NON VIOLAZIONE DI DIRITTI ALTRUI. L’UTENTE UTILIZZA IL SOFTWARE A PROPRIO
+RISCHIO. Il Licenziante non garantisce disponibilità continua, assenza di errori o compatibilità con
+ogni sistema/driver/hardware/host.
+
+9) Limitazione di responsabilità
+NELLA MISURA MASSIMA CONSENTITA DALLA LEGGE, IN NESSUN CASO IL LICENZIANTE SARÀ
+RESPONSABILE PER DANNI INDIRETTI, SPECIALI, INCIDENTALI, CONSEQUENZIALI O PUNITIVI,
+PERDITA DI PROFITTI, DI DATI, INTERRUZIONE DI ATTIVITÀ, O DANNI DERIVANTI DA USO O
+IMPOSSIBILITÀ DI USO DEL SOFTWARE, ANCHE SE INFORMATO DI TALI EVENTUALITÀ. In ogni caso,
+l’eventuale responsabilità complessiva del Licenziante è limitata all’importo eventualmente pagato
+dall’Utente per la licenza del Software (che, allo stato, è pari a zero).
+
+10) Durata e risoluzione
+La licenza decorre dall’installazione/uso e resta valida finché l’Utente rispetta i termini presenti.
+Il Licenziante può revocare la licenza in caso di violazione; in tal caso l’Utente dovrà cessare l’uso
+e cancellare ogni copia del Software.
+
+11) Aggiornamenti
+Eventuali aggiornamenti potranno essere forniti a discrezione del Licenziante e potranno essere
+soggetti a termini aggiuntivi. L’Utente è responsabile del backup dei propri dati/preset.
+
+12) Legge applicabile e foro
+La presente licenza è regolata dalla legge italiana. Per ogni controversia sarà competente in via
+esclusiva il foro del luogo in cui il Licenziante ha sede/domicilio, salvo diversa previsione inderogabile.
+
+13) Varie
+L’eventuale invalidità di una clausola non pregiudica la validità delle restanti. La mancata o ritardata
+applicazione di un diritto non costituisce rinuncia. Questa EULA costituisce l’intero accordo tra le parti
+in relazione al Software.
+
+14) Contatti
+Massimiliano Marchese — https://dartmobo.com

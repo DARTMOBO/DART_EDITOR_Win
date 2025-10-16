@@ -1,0 +1,54 @@
+THIRD_PARTY_NOTICES.txt
+DART Editor (Processing)
+Ultimo aggiornamento: 2025-10-16
+
+Questo archivio NON include librerie di terze parti. Lo sketch utilizza librerie installate
+separatamente tramite il Contribution Manager di Processing (o equivalenti). Di seguito sono
+riportati autore, licenza e riferimenti.
+
+──────────────────────────────────────────────────────────────────────────────
+1) ControlP5 (GUI library)
+   Autore: Andreas Schlegel (sojamo)
+   Homepage: https://github.com/sojamo/controlp5
+   Licenza: GNU Lesser General Public License (LGPL) v2.1 o successive
+   Testo licenza: https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
+   Versione testata: [opzionale — es. 2.2.x]
+
+   Nota: ControlP5 è una libreria per Processing rilasciata sotto LGPL 2.1+.
+   Non viene redistribuita in questo pacchetto; è solo una dipendenza a runtime.
+
+──────────────────────────────────────────────────────────────────────────────
+2) The MidiBus (MIDI I/O)
+   Autore: Severin Smith / Small but Digital
+   Homepage: https://github.com/sparks/themidibus
+   Licenza: GNU Lesser General Public License (LGPL) v3.0
+   Testo licenza: https://www.gnu.org/licenses/lgpl-3.0.html
+   Versione testata: [opzionale — es. 0.6.x]
+
+   Nota: The MidiBus fornisce API per inviare/ricevere MIDI in Processing.
+   Non viene redistribuita in questo pacchetto.
+
+──────────────────────────────────────────────────────────────────────────────
+3) Minim (+ ugens) (audio/sintesi)
+   Autori: Damien Di Fede e contributor
+   Homepage: https://code.compartmental.net/tools/minim/  •  https://github.com/ddf/Minim
+   Licenza: GNU Lesser General Public License (LGPL) v3.0
+   Testo licenza: https://www.gnu.org/licenses/lgpl-3.0.html
+   Versione testata: [opzionale — es. 2.2.2]
+
+   Note: Minim usa JavaSound e può appoggiarsi a componenti/codec aggiuntivi quando presenti
+   nel sistema. Non viene redistribuita in questo pacchetto.
+
+──────────────────────────────────────────────────────────────────────────────
+API standard Java utilizzate (non terze parti):
+   • javax.sound.midi (Java SE)
+   • javax.swing (Java SE)
+   Questi moduli sono forniti dall’ambiente Java e non sono inclusi in questo archivio.
+
+Come verificare le versioni effettive installate in Processing:
+   Processing → Sketch → Import Library… → Add Library… (oppure controlla la cartella
+   {sketchbook}/libraries/<nome-libreria>/library/ per leggere il numero di versione).
+
+Suggerimento per la ridistribuzione (solo se in futuro includerai i JAR):
+   Se mai deciderai di includere i jar delle librerie in questo pacchetto, allega anche i testi
+   completi delle licenze LGPL pertinenti e mantieni le librerie separabili/sostituibili.

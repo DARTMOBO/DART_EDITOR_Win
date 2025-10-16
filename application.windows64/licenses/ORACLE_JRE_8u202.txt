@@ -1,0 +1,48 @@
+ORACLE JRE 8u202 — REDISTRIBUTION NOTICE
+Product: DART Editor (Processing) for Windows
+Last updated: 2025-10-16
+
+This application bundles the Oracle Java SE Runtime Environment 8 Update 202 (Windows amd64),
+unmodified, located in the application folder: .\java\
+
+Java release info (as found in .\java\release):
+  JAVA_VERSION="1.8.0_202"
+  BUILD_TYPE="commercial"
+
+License
+-------
+Oracle Binary Code License Agreement for the Java SE Platform Products (Java SE 8).
+This notice is informative and does not replace the license. Please refer to the full text of the
+Oracle Binary Code License (BCL) for Java SE 8 available from Oracle's archive pages.
+
+Primary references:
+  - Java SE 8 Archive Downloads & License terms (Oracle): https://www.oracle.com/java/technologies/javase/javase8-archive-downloads.html
+  - General Oracle Binary Code License (historical reference): https://www.oracle.com/downloads/licenses/binary-code-license.html
+
+Redistribution summary (non-legal, for convenience)
+---------------------------------------------------
+• The JRE included here is the unmodified Oracle Java SE Runtime Environment 8u202.
+• Redistribution together with this application is intended under the Oracle BCL for Java SE 8.
+• Do not represent the JRE as a separate product from this application.
+• Do not modify or remove files from the JRE; if you trim optional components, follow Oracle’s
+  redistribution notes for JRE/JDK 8.
+• Keep this notice with your distribution, together with the license references above.
+• Oracle provides the JRE “as is” without warranties (see the license for details).
+• Security updates are not included in 8u202; consider upgrading to a maintained runtime for production use.
+
+Trademarks
+----------
+Oracle and Java are registered trademarks of Oracle and/or its affiliates.
+Other names may be trademarks of their respective owners.
+
+Third-party components inside the JRE
+-------------------------------------
+The Oracle JRE may include third-party components. For their notices and licenses,
+please see any third-party license/copyright files shipped within the JRE
+directory tree (if present).
+
+Contact
+-------
+For questions about this notice within the DART Editor distribution:
+Author: Massimiliano Marchese
+Website: dartmobo.com
