@@ -2,7 +2,7 @@
 
 **Version:** v1.0 (example)  
 **Project site:** https://dartmobo.com/dart_diy/dart_editor/  
-**Platform:** Windows 64‑bit 
+**Platform:** Windows 64‑bit 32-bit
 **Runtime:** Oracle Java SE 8u202 (bundled, unmodified)
 
 ## What it is
@@ -17,7 +17,7 @@ DART Editor is a companion app for DARTMOBO‑based controllers. It lets you **c
 - **Fullscreen Items Area**: toggle with keyboard (see Shortcuts).
 
 ## System requirements
-- Windows 10/11 64‑bit
+- Windows 10/11 64‑bit 32-bit
 - MIDI drivers (class‑compliant) for your controller
 - No separate Java installation required (JRE 8u202 is included)
 
